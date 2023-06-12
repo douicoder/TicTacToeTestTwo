@@ -1,0 +1,75 @@
+﻿@page "/"
+@page "/doui"
+
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Itim', cursive;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .board {
+        width: 33rem;
+        height: 31rem;
+        margin: auto;
+        border: 1px solid white;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .square {
+        width: 10rem;
+        height: 10rem;
+        border: 1px solid white;
+        margin-right: 4px;
+        border-radius: 30px;
+        background: #78bec5;
+        opacity: 80;
+    }
+
+        .square:hover {
+            background: #ecaf4f;
+            cursor: pointer;
+        }
+
+    .char1 {
+        font-size: 5rem;
+        text-align: center;
+        font-weight: 800;
+        margin-top: 15%;
+        color: #dc685a;
+    }
+
+</style>
+
+    <html>
+
+    <body>
+        <h1>tic tac toe</h1>
+
+        <div>
+            <h2>X=player 1,O=player 2</h2>
+            <div class="board">
+                @for (int i = 0; i < board.Length; i++)
+                {
+                    int id = i;
+                    <div @onclick="()=>BoardClick(id)" class="square">
+                        <h5 class="char1">
+                            @board[i]
+                        </h5>
+                    </div>
+                }
+            </div>
+            </div>
+            <div align="right">
+            <h4>Made By Doui Gurvinder</h4>
+        </div>
+    </body>
+
+</html>
