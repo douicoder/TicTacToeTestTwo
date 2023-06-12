@@ -13,21 +13,15 @@ jobs:
             - name: Setup .NET Core SDK
               uses: actions/setup-dotnet@v1
               with:
-                  dotnet-version: 6.x
+                  dotnet-version: 6.0.16
                   include-prerelease: true
 
             - name: Publish .NET Core Project
-              run: dotnet publish TicTacToeTestTwo/TicTacToeTestTwo.csproj -c Release -o release --nologo
-
-            - name: copy index.html to 404.html
-              run: cp release/wwwroot/index.html release/wwwroot/404.html
-
-            - name: Add .nojekyll file
-              run: touch release/wwwroot/.nojekyll
+              run: dotnet publish TicTacToeTestTwo/TicTacToeTestTwo.csproj -configuration Release -o release --nologo
 
             - name: Commit wwwroot to GitHub Pages
               uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH: gh-pages
+                  GITHUB_TOKEN: ${{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}}
+                  BRANCH: master
                   FOLDER: release/wwwroot
